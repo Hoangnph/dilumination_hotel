@@ -14,21 +14,47 @@
 - Thiết lập Nginx
 - Cấu hình giám sát cơ bản
 
-## Giai Đoạn 2: Phát Triển Dịch Vụ Cốt Lõi
+## Giai Đoạn 2: Phát Triển Phần Khách Hàng
 
-### 2.1 Dịch Vụ API Gateway
+### 2.1 Frontend Khách Hàng
+- Thiết kế giao diện đặt phòng
+- Phát triển trang thông tin phòng
+- Triển khai quản lý đặt chỗ
+- Phát triển thanh toán trực tuyến
+- Tích hợp PWA
+
+### 2.2 Backend Khách Hàng
+- Thiết kế API đặt phòng
+- Phát triển API thông tin phòng
+- Triển khai API thanh toán
+- Phát triển API thông báo
+- Tích hợp quản lý đặt chỗ
+
+## Giai Đoạn 3: Phát Triển Phần Quản Lý
+
+### 3.1 Frontend Quản Lý
+- Thiết kế dashboard quản trị
+- Phát triển quản lý phòng
+- Triển khai quản lý đặt phòng
+- Phát triển quản lý lễ tân
+- Tích hợp báo cáo và thống kê
+
+### 3.2 Backend Quản Lý
 - Thiết kế API Gateway
-- Triển khai định tuyến
-- Cấu hình xác thực cơ bản
-- Thiết lập giới hạn tốc độ
+- Phát triển dịch vụ xác thực
+- Triển khai quản lý khách sạn
+- Phát triển quản lý đặt phòng
+- Tích hợp dịch vụ lễ tân
 
-### 2.2 Dịch Vụ Xác Thực
+## Giai Đoạn 4: Phát Triển Dịch Vụ Chung
+
+### 4.1 Dịch Vụ Xác Thực
 - Thiết kế hệ thống xác thực
 - Triển khai xác thực JWT
 - Phát triển quản lý người dùng
-- Triển khai kiểm soát truy cập
+- Tích hợp kiểm soát truy cập
 
-### 2.3 Dịch Vụ Quản Lý Khách Sạn
+### 4.2 Dịch Vụ Quản Lý Khách Sạn
 - Thiết kế quản lý khách sạn
 - Triển khai quản lý phòng với các trạng thái:
   - Phòng Bận (Đang sử dụng/Đã đặt/Đang bảo trì)
@@ -37,87 +63,49 @@
   - Phòng Chưa Dọn
   - Phòng Bảo Trì
 - Phát triển quản lý giá
-- Triển khai quản lý tiện nghi
+- Tích hợp quản lý tiện nghi
 
-### 2.4 Dịch Vụ Đặt Phòng
-- Thiết kế hệ thống đặt phòng
-- Triển khai quản lý đặt chỗ
-- Phát triển kiểm tra tình trạng phòng
-- Triển khai tính toán giá
-
-### 2.5 Dịch Vụ Lễ Tân
-- Thiết kế quy trình lễ tân
-- Triển khai nhận/trả phòng
-- Phát triển quản lý khách
-- Triển khai xử lý thanh toán
-
-### 2.6 Dịch Vụ Báo Cáo
-- Thiết kế hệ thống báo cáo
-- Triển khai báo cáo tỷ lệ lấp đầy
-- Phát triển báo cáo doanh thu
-- Triển khai thống kê khách
-
-### 2.7 Dịch Vụ Thông Báo
+### 4.3 Dịch Vụ Thông Báo
 - Thiết kế hệ thống thông báo
 - Triển khai thông báo email
 - Phát triển thông báo trong ứng dụng
-- Triển khai cảnh báo tự động
+- Tích hợp cảnh báo tự động
 
-## Giai Đoạn 3: Phát Triển Frontend
+## Giai Đoạn 5: Kiểm Thử
 
-### 3.1 Giao Diện Quản Trị
-- Thiết kế giao diện quản trị
-- Triển khai quản lý người dùng
-- Phát triển quản lý khách sạn
-- Triển khai báo cáo và thống kê
-
-### 3.2 Giao Diện Quản Lý Khách Sạn
-- Thiết kế giao diện quản lý
-- Triển khai quản lý phòng
-- Phát triển quản lý đặt phòng
-- Triển khai quản lý lễ tân
-
-### 3.3 Giao Diện Web Di Động
-- Thiết kế giao diện di động
-- Triển khai đặt phòng trực tuyến
-- Phát triển quản lý đặt chỗ
-- Triển khai thông báo
-
-## Giai Đoạn 4: Kiểm Thử
-
-### 4.1 Kiểm Thử Đơn Vị
+### 5.1 Kiểm Thử Đơn Vị
 - Viết kiểm thử đơn vị
 - Kiểm thử dịch vụ
 - Kiểm thử tích hợp
 - Kiểm thử hiệu suất
 
-### 4.2 Kiểm Thử Tích Hợp
+### 5.2 Kiểm Thử Tích Hợp
 - Kiểm thử luồng nghiệp vụ
 - Kiểm thử API
 - Kiểm thử cơ sở dữ liệu
 - Kiểm thử bảo mật
 
-### 4.3 Kiểm Thử End-to-End
+### 5.3 Kiểm Thử End-to-End
 - Kiểm thử quy trình đặt phòng
 - Kiểm thử quy trình lễ tân
 - Kiểm thử quy trình thanh toán
 - Kiểm thử báo cáo
 
-## Giai Đoạn 5: Triển Khai
+## Giai Đoạn 6: Triển Khai
 
-### 5.1 Chuẩn Bị Triển Khai
+### 6.1 Chuẩn Bị Triển Khai
 - Chuẩn bị môi trường
 - Cấu hình cơ sở dữ liệu
 - Thiết lập bảo mật
 - Cấu hình giám sát
 
-### 5.2 Triển Khai Hệ Thống
+### 6.2 Triển Khai Hệ Thống
 - Triển khai dịch vụ
 - Cấu hình cân bằng tải
 - Thiết lập sao lưu
 - Kiểm tra triển khai
 
-### 5.3 Tài Liệu & Đào Tạo
+### 6.3 Tài Liệu & Đào Tạo
 - Viết tài liệu kỹ thuật
 - Viết tài liệu người dùng
 - Chuẩn bị tài liệu đào tạo

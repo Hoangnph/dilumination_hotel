@@ -1,10 +1,46 @@
 # Tính Năng Hệ Thống Quản Lý Khách Sạn (MVP)
 
-## Tính Năng Cốt Lõi
+## Phần Dành Cho Khách Hàng
+
+### 1. Giao Diện Khách Hàng (Frontend)
+- Giao diện đặt phòng trực tuyến
+- Xem thông tin phòng và tiện nghi
+- Đặt phòng và thanh toán
+- Quản lý đặt chỗ cá nhân
+- Nhận thông báo qua email
+- Giao diện web di động (PWA)
+
+### 2. Dịch Vụ Backend Cho Khách Hàng
+- API đặt phòng
+- API xem thông tin phòng
+- API thanh toán
+- API thông báo
+- API quản lý đặt chỗ
+
+## Phần Dành Cho Quản Lý
+
+### 1. Giao Diện Quản Lý (Frontend)
+- Dashboard quản trị
+- Quản lý phòng và đặt phòng
+- Quản lý lễ tân
+- Báo cáo và thống kê
+- Quản lý người dùng
+- Cài đặt hệ thống
+
+### 2. Dịch Vụ Backend Cho Quản Lý
+- API Gateway
+- Dịch vụ xác thực và phân quyền
+- Dịch vụ quản lý khách sạn
+- Dịch vụ quản lý đặt phòng
+- Dịch vụ lễ tân
+- Dịch vụ báo cáo
+- Dịch vụ thông báo
+
+## Tính Năng Chung
 
 ### 1. Quản Lý Người Dùng & Xác Thực
 - Quản lý người dùng cơ bản
-- Kiểm soát truy cập đơn giản (Admin/Staff)
+- Kiểm soát truy cập đơn giản (Admin/Staff/Customer)
 - Xác thực người dùng cơ bản
 - Quản lý và khôi phục mật khẩu
 - Quản lý phiên đăng nhập
@@ -20,14 +56,7 @@
 - Quản lý giá đơn giản
 - Quản lý tiện nghi cơ bản
 
-### 3. Đặt Phòng & Đặt Chỗ
-- Hệ thống đặt phòng trực tuyến cơ bản
-- Quản lý đặt chỗ
-- Lịch đặt phòng
-- Theo dõi tình trạng phòng
-- Quản lý giá đơn giản
-
-### 4. Hoạt Động Lễ Tân
+### 3. Hoạt Động Lễ Tân
 - Quản lý nhận/trả phòng
 - Đăng ký khách cơ bản
 - Phân công phòng
@@ -35,28 +64,22 @@
 - Xử lý thanh toán đơn giản
 - Tạo hóa đơn cơ bản
 
-### 5. Quản Lý Buồng Phòng (Đơn Giản)
+### 4. Quản Lý Buồng Phòng
 - Theo dõi trạng thái phòng chi tiết
 - Phân công dọn dẹp phòng
 - Yêu cầu bảo trì đơn giản
 - Quản lý công việc cơ bản
 
-### 6. Báo Cáo Cơ Bản
+### 5. Báo Cáo Cơ Bản
 - Báo cáo tỷ lệ lấp đầy
 - Báo cáo doanh thu đơn giản
 - Thống kê khách cơ bản
 - Xuất dữ liệu cơ bản
 
-### 7. Thông Báo Cơ Bản
+### 6. Thông Báo Cơ Bản
 - Thông báo qua email
 - Thông báo trong ứng dụng
 - Cảnh báo tự động cơ bản
-
-### 8. Tính Năng Di Động Cơ Bản
-- Nhận/trả phòng qua di động
-- Dịch vụ phòng qua di động
-- Thanh toán qua di động
-- Hỗ trợ PWA cơ bản
 
 ## Tính Năng Kỹ Thuật
 
