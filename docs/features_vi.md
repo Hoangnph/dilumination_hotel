@@ -11,7 +11,12 @@
 
 ### 2. Quản Lý Khách Sạn
 - Quản lý hồ sơ khách sạn cơ bản
-- Quản lý phòng
+- Quản lý phòng với các trạng thái:
+  - Phòng Bận (Đang sử dụng/Đã đặt/Đang bảo trì)
+  - Phòng Trống (Đã dọn xong)
+  - Phòng Đang Dọn
+  - Phòng Chưa Dọn
+  - Phòng Bảo Trì
 - Quản lý giá đơn giản
 - Quản lý tiện nghi cơ bản
 
@@ -31,7 +36,8 @@
 - Tạo hóa đơn cơ bản
 
 ### 5. Quản Lý Buồng Phòng (Đơn Giản)
-- Theo dõi trạng thái phòng
+- Theo dõi trạng thái phòng chi tiết
+- Phân công dọn dẹp phòng
 - Yêu cầu bảo trì đơn giản
 - Quản lý công việc cơ bản
 

@@ -30,7 +30,12 @@ Hệ thống quản lý khách sạn được thiết kế theo kiến trúc mic
 - **Mục đích**: Quản lý cấu hình cơ bản của khách sạn
 - **Trách nhiệm**:
   - Quản lý hồ sơ khách sạn cơ bản
-  - Quản lý phòng
+  - Quản lý phòng với các trạng thái:
+    - Phòng Bận (Đang sử dụng/Đã đặt/Đang bảo trì)
+    - Phòng Trống (Đã dọn xong)
+    - Phòng Đang Dọn
+    - Phòng Chưa Dọn
+    - Phòng Bảo Trì
   - Quản lý giá đơn giản
   - Quản lý tiện nghi cơ bản
 - **Công nghệ**: Node.js với Express
