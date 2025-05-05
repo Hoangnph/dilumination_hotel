@@ -1,127 +1,358 @@
 # Danh Sách Công Việc - Hệ Thống Quản Lý Khách Sạn (MVP)
 
-## Giai Đoạn 1: Thiết Lập Dự Án
+## Sprint 0: Thiết Lập Dự Án (2 tuần)
 
-### 1.1 Thiết Lập Môi Trường Phát Triển
-- Cài đặt công cụ phát triển
-- Thiết lập môi trường Docker
-- Cấu hình IDE và công cụ phát triển
-- Thiết lập quản lý mã nguồn
+### 1. Thiết Lập Môi Trường Phát Triển
+- [ ] Cài đặt công cụ phát triển
+  - Node.js, TypeScript
+  - Docker, Docker Compose
+  - IDE và extensions
+  - Git và GitHub
+- [ ] Thiết lập CI/CD pipeline
+  - GitHub Actions workflow
+  - Docker registry
+  - Automated testing
+  - Deployment pipeline
 
-### 1.2 Thiết Lập Cơ Sở Hạ Tầng
-- Thiết lập cơ sở dữ liệu MySQL
-- Cấu hình Redis
-- Thiết lập Nginx
-- Cấu hình giám sát cơ bản
+### 2. Thiết Lập Cơ Sở Hạ Tầng
+- [ ] Cấu hình cơ sở dữ liệu
+  - MySQL master-slave
+  - Redis cache
+  - Database migration tools
+- [ ] Thiết lập monitoring
+  - Prometheus/Grafana
+  - ELK Stack
+  - Sentry
+- [ ] Cấu hình Nginx và SSL
 
-## Giai Đoạn 2: Phát Triển Phần Khách Hàng
+### 3. Thiết Lập Testing Framework
+- [ ] Jest cho unit testing
+- [ ] Supertest cho API testing
+- [ ] Cypress cho E2E testing
+- [ ] Test coverage reporting
 
-### 2.1 Frontend Khách Hàng
-- Thiết kế giao diện đặt phòng
-- Phát triển trang thông tin phòng
-- Triển khai quản lý đặt chỗ
-- Phát triển thanh toán trực tuyến
-- Tích hợp PWA
+## Sprint 1: Core Services & Authentication (2 tuần)
 
-### 2.2 Backend Khách Hàng
-- Thiết kế API đặt phòng
-- Phát triển API thông tin phòng
-- Triển khai API thanh toán
-- Phát triển API thông báo
-- Tích hợp quản lý đặt chỗ
+### 1. Authentication Service
+- [ ] Viết test cases cho:
+  - User registration
+  - Login/Logout
+  - JWT token management
+  - Role-based access control
+- [ ] Implement Authentication Service
+  - User model và validation
+  - JWT implementation
+  - Password hashing
+  - Session management
+- [ ] API Endpoints:
+  - `/api/auth/register`
+  - `/api/auth/login`
+  - `/api/auth/verify`
+  - `/api/auth/permissions`
 
-## Giai Đoạn 3: Phát Triển Phần Quản Lý
+### 2. API Gateway
+- [ ] Viết test cases cho:
+  - Request routing
+  - Rate limiting
+  - Request validation
+  - Error handling
+- [ ] Implement API Gateway
+  - Service discovery
+  - Load balancing
+  - Request/Response transformation
+  - Circuit breaking
 
-### 3.1 Frontend Quản Lý
-- Thiết kế dashboard quản trị
-- Phát triển quản lý phòng
-- Triển khai quản lý đặt phòng
-- Phát triển quản lý lễ tân
-- Tích hợp báo cáo và thống kê
+## Sprint 2: Admin Services (2 tuần)
 
-### 3.2 Backend Quản Lý
-- Thiết kế API Gateway
-- Phát triển dịch vụ xác thực
-- Triển khai quản lý khách sạn
-- Phát triển quản lý đặt phòng
-- Tích hợp dịch vụ lễ tân
+### 1. Admin Management Service
+- [ ] Viết test cases cho:
+  - Admin account management
+  - System configuration
+  - Hotel approval workflow
+- [ ] Implement Admin Service
+  - Admin model và validation
+  - Configuration management
+  - Hotel approval system
+- [ ] API Endpoints:
+  - `/api/admin/accounts`
+  - `/api/admin/config`
+  - `/api/admin/system`
 
-## Giai Đoạn 4: Phát Triển Dịch Vụ Chung
+### 2. Hotel Management Service
+- [ ] Viết test cases cho:
+  - Hotel registration
+  - Hotel profile management
+  - Hotel status tracking
+- [ ] Implement Hotel Service
+  - Hotel model và validation
+  - Profile management
+  - Status tracking
+- [ ] API Endpoints:
+  - `/api/admin/hotels`
+  - `/api/admin/status`
+  - `/api/admin/approvals`
 
-### 4.1 Dịch Vụ Xác Thực
-- Thiết kế hệ thống xác thực
-- Triển khai xác thực JWT
-- Phát triển quản lý người dùng
-- Tích hợp kiểm soát truy cập
+## Sprint 3: Hotel Services (2 tuần)
 
-### 4.2 Dịch Vụ Quản Lý Khách Sạn
-- Thiết kế quản lý khách sạn
-- Triển khai quản lý phòng với các trạng thái:
-  - Phòng Bận (Đang sử dụng/Đã đặt/Đang bảo trì)
-  - Phòng Trống (Đã dọn xong)
-  - Phòng Đang Dọn
-  - Phòng Chưa Dọn
-  - Phòng Bảo Trì
-- Phát triển quản lý giá
-- Tích hợp quản lý tiện nghi
+### 1. Hotel Profile Service
+- [ ] Viết test cases cho:
+  - Hotel information management
+  - Media handling
+  - Settings management
+- [ ] Implement Hotel Profile Service
+  - Profile model và validation
+  - Media upload/management
+  - Settings configuration
+- [ ] API Endpoints:
+  - `/api/hotel/profile`
+  - `/api/hotel/settings`
+  - `/api/hotel/media`
 
-### 4.3 Dịch Vụ Thông Báo
-- Thiết kế hệ thống thông báo
-- Triển khai thông báo email
-- Phát triển thông báo trong ứng dụng
-- Tích hợp cảnh báo tự động
+### 2. Room Management Service
+- [ ] Viết test cases cho:
+  - Room type management
+  - Pricing configuration
+  - Amenities management
+- [ ] Implement Room Service
+  - Room model và validation
+  - Pricing engine
+  - Amenities tracking
+- [ ] API Endpoints:
+  - `/api/hotel/rooms`
+  - `/api/hotel/pricing`
+  - `/api/hotel/amenities`
 
-## Giai Đoạn 5: Kiểm Thử
+### 3. Housekeeping Service
+- [ ] Viết test cases cho:
+  - Task management
+  - Room status updates
+  - Issue reporting
+  - Task confirmation
+- [ ] Implement Housekeeping Service
+  - Task model và validation
+  - Status tracking
+  - Issue management
+  - Confirmation workflow
+- [ ] API Endpoints:
+  - `/api/hotel/housekeeping/tasks`
+  - `/api/hotel/housekeeping/status`
+  - `/api/hotel/housekeeping/issues`
+  - `/api/hotel/housekeeping/confirmations`
 
-### 5.1 Kiểm Thử Đơn Vị
-- Viết kiểm thử đơn vị
-- Kiểm thử dịch vụ
-- Kiểm thử tích hợp
-- Kiểm thử hiệu suất
+## Sprint 4: Booking Services (2 tuần)
 
-### 5.2 Kiểm Thử Tích Hợp
-- Kiểm thử luồng nghiệp vụ
-- Kiểm thử API
-- Kiểm thử cơ sở dữ liệu
-- Kiểm thử bảo mật
+### 1. Hotel Booking Service
+- [ ] Viết test cases cho:
+  - Booking creation
+  - Booking modification
+  - Booking cancellation
+  - Room availability
+- [ ] Implement Booking Service
+  - Booking model và validation
+  - Availability management
+  - Booking workflow
+- [ ] API Endpoints:
+  - `/api/hotel/bookings`
+  - `/api/hotel/reception`
+  - `/api/hotel/checkout`
 
-### 5.3 Kiểm Thử End-to-End
-- Kiểm thử quy trình đặt phòng
-- Kiểm thử quy trình lễ tân
-- Kiểm thử quy trình thanh toán
-- Kiểm thử báo cáo
+### 2. Customer Booking Service
+- [ ] Viết test cases cho:
+  - Room search
+  - Booking process
+  - Payment integration
+- [ ] Implement Customer Booking Service
+  - Search engine
+  - Booking workflow
+  - Payment processing
+- [ ] API Endpoints:
+  - `/api/customer/bookings`
+  - `/api/customer/search`
+  - `/api/customer/availability`
 
-## Giai Đoạn 6: Triển Khai
+## Sprint 5: Payment & Notification (2 tuần)
 
-### 6.1 Chuẩn Bị Triển Khai
-- Chuẩn bị môi trường
-- Cấu hình cơ sở dữ liệu
-- Thiết lập bảo mật
-- Cấu hình giám sát
+### 1. Payment Service
+- [ ] Viết test cases cho:
+  - Payment processing
+  - Refund handling
+  - Transaction history
+- [ ] Implement Payment Service
+  - Payment gateway integration
+  - Transaction management
+  - Refund processing
+- [ ] API Endpoints:
+  - `/api/payment/process`
+  - `/api/payment/refund`
+  - `/api/payment/history`
 
-### 6.2 Triển Khai Hệ Thống
-- Triển khai dịch vụ
-- Cấu hình cân bằng tải
-- Thiết lập sao lưu
-- Kiểm tra triển khai
+### 2. Notification Service
+- [ ] Viết test cases cho:
+  - Email notifications
+  - Push notifications
+  - SMS notifications
+- [ ] Implement Notification Service
+  - Email service integration
+  - Push notification system
+  - SMS gateway integration
+- [ ] API Endpoints:
+  - `/api/notifications/email`
+  - `/api/notifications/push`
+  - `/api/notifications/sms`
 
-### 6.3 Tài Liệu & Đào Tạo
-- Viết tài liệu kỹ thuật
-- Viết tài liệu người dùng
-- Chuẩn bị tài liệu đào tạo
-- Đào tạo người dùng
+## Sprint 6: Frontend Core & PWA Setup (2 tuần)
+
+### 1. PWA Foundation
+- [ ] Viết test cases cho:
+  - Service worker registration
+  - Cache API functionality
+  - Push notification handling
+  - Offline capabilities
+- [ ] Implement PWA Core
+  - Service worker setup
+  - Web app manifest
+  - Cache strategies
+  - Push notification system
+
+### 2. Frontend Architecture
+- [ ] Viết test cases cho:
+  - Component rendering
+  - State management
+  - API integration
+  - Error handling
+- [ ] Implement Core Architecture
+  - Next.js 14 setup
+  - Zustand store setup
+  - API client setup
+  - Error boundary setup
+
+## Sprint 7: Admin & Hotel Portals (2 tuần)
+
+### 1. Admin Portal
+- [ ] Viết test cases cho:
+  - Server Components
+  - Client Components
+  - State management
+  - API integration
+- [ ] Implement Admin Portal
+  - Dashboard (Server Components)
+  - Hotel Management (Client Components)
+  - System Configuration (Server Components)
+  - Reporting (Server Components)
+
+### 2. Hotel Portal
+- [ ] Viết test cases cho:
+  - Server Components
+  - Client Components
+  - State management
+  - API integration
+- [ ] Implement Hotel Portal
+  - Dashboard (Server Components)
+  - Room Management (Client Components)
+  - Booking Management (Client Components)
+  - Reception (Client Components)
+
+## Sprint 8: Customer Portal & PWA Features (2 tuần)
+
+### 1. Customer Portal
+- [ ] Viết test cases cho:
+  - Booking flow
+  - Search functionality
+  - Profile management
+  - Payment integration
+- [ ] Implement Customer Portal
+  - Booking Interface (Client Components)
+  - Room Search (Server Components)
+  - Customer Profile (Client Components)
+  - Payment (Client Components)
+
+### 2. PWA Features
+- [ ] Viết test cases cho:
+  - Offline booking
+  - Push notifications
+  - Background sync
+  - Cache management
+- [ ] Implement PWA Features
+  - Offline booking workflow
+  - Push notification system
+  - Background sync for bookings
+  - Advanced cache strategies
+
+## Sprint 9: Performance & Optimization (2 tuần)
+
+### 1. Frontend Performance
+- [ ] Viết test cases cho:
+  - Load time metrics
+  - Performance budgets
+  - Core Web Vitals
+  - Resource optimization
+- [ ] Implement Performance Optimizations
+  - Code splitting
+  - Asset optimization
+  - Image optimization
+  - Bundle size optimization
+
+### 2. PWA Optimization
+- [ ] Viết test cases cho:
+  - Offline functionality
+  - Cache hit rates
+  - Background sync
+  - Push notification delivery
+- [ ] Implement PWA Optimizations
+  - Cache strategy refinement
+  - Background sync optimization
+  - Push notification optimization
+  - Offline experience enhancement
+
+## Sprint 10: Testing & Documentation (2 tuần)
+
+### 1. Testing
+- [ ] Unit Testing
+  - Component tests
+  - Service worker tests
+  - State management tests
+  - API integration tests
+- [ ] Integration Testing
+  - End-to-end flows
+  - PWA functionality
+  - Offline scenarios
+  - Performance testing
+
+### 2. Documentation
+- [ ] Technical Documentation
+  - Architecture documentation
+  - PWA implementation guide
+  - Performance optimization guide
+  - Testing strategy
+- [ ] User Documentation
+  - Installation guide
+  - Offline usage guide
+  - Feature documentation
+  - Troubleshooting guide
+
+## Definition of Done (DoD)
+- [ ] All test cases written and passing
+- [ ] Code review completed
+- [ ] Documentation updated
+- [ ] Performance requirements met
+- [ ] Security requirements met
+- [ ] No known bugs
+- [ ] Deployed to staging environment
 
 ## Yêu Cầu Nguồn Lực
 
 ### Đội Phát Triển
-- 1 Backend Developer
-- 1 Frontend Developer
+- 2 Backend Developer
+- 2 Frontend Developer
 - 1 DevOps Engineer
 - 1 QA Engineer
+- 1 Technical Writer
 
 ### Cơ Sở Hạ Tầng
 - Docker Compose
 - MySQL
 - Redis
 - Nginx
-- Prometheus/Grafana 
+- Prometheus/Grafana
+- ELK Stack
+- Sentry 
