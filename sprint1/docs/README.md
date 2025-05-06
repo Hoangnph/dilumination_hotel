@@ -102,8 +102,8 @@ npm start
 
 ## 8. Test nghiệm thu
 - Đã kiểm thử CRUD, isolation, double booking, update, delete với DB thật.
-- Test pass 100% cho booking, hotel. Room sẽ tiếp tục tự động hóa nếu cần.
+- Test pass 100% cho booking, hotel, room.
 
 ## 9. Khuyến nghị
 - Tích hợp CI/CD, logging, monitoring, cache Redis, tối ưu DB.
-- Mở rộng service room nếu cần. 
+- Mở rộng service user/auth nếu cần. 
