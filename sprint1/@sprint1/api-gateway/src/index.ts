@@ -18,6 +18,24 @@ app.use('/api/rooms', createProxyMiddleware({
   pathRewrite: { '^/api/rooms': '/rooms' }
 }));
 
+app.use('/api/bookings', createProxyMiddleware({
+  target: process.env.BOOKING_SERVICE_URL,
+  changeOrigin: true,
+  pathRewrite: { '^/api/bookings': '/bookings' }
+}));
+
+app.use('/api/users', createProxyMiddleware({
+  target: process.env.USER_SERVICE_URL,
+  changeOrigin: true,
+  pathRewrite: { '^/api/users': '/users' }
+}));
+
+app.use('/api/auth', createProxyMiddleware({
+  target: process.env.USER_SERVICE_URL,
+  changeOrigin: true,
+  pathRewrite: { '^/api/auth': '/auth' }
+}));
+
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', service: 'api-gateway', timestamp: new Date().toISOString() });
 });
