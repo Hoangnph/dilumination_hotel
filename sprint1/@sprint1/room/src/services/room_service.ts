@@ -1,44 +1,51 @@
 import { Room } from '../models/room';
-
-let rooms: Room[] = [];
-let idCounter = 1;
+import { getDbConnection } from '../utils/db';
 
 export async function createRoom(data: Partial<Room>): Promise<Room> {
+  const conn = await getDbConnection();
   const now = new Date();
-  const room: Room = {
-    id: idCounter++,
-    hotel_id: data.hotel_id!,
-    type: data.type!,
-    price: data.price!,
-    status: data.status || 'available',
-    created_at: now,
-    updated_at: now
-  };
-  rooms.push(room);
-  return room;
+  const [result] = await conn.execute(
+    `INSERT INTO rooms (hotel_id, type, price, status, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)`,
+    [data.hotel_id, data.type, data.price, data.status || 'available', now, now]
+  );
+  const id = (result as any).insertId;
+  const [rows] = await conn.execute('SELECT * FROM rooms WHERE id = ?', [id]);
+  await conn.end();
+  return (rows as any[])[0] as Room;
 }
 
 export async function getRooms(): Promise<Room[]> {
-  return rooms;
+  const conn = await getDbConnection();
+  const [rows] = await conn.execute('SELECT * FROM rooms');
+  await conn.end();
+  return rows as Room[];
 }
 
 export async function getRoomById(id: number): Promise<Room | null> {
-  return rooms.find(r => r.id === id) || null;
+  const conn = await getDbConnection();
+  const [rows] = await conn.execute('SELECT * FROM rooms WHERE id = ?', [id]);
+  await conn.end();
+  return (rows as any[])[0] || null;
 }
 
 export async function updateRoom(id: number, data: Partial<Room>): Promise<Room | null> {
-  const room = rooms.find(r => r.id === id);
-  if (!room) return null;
-  if (data.type) room.type = data.type;
-  if (data.price !== undefined) room.price = data.price;
-  if (data.status) room.status = data.status;
-  room.updated_at = new Date();
-  return room;
+  const conn = await getDbConnection();
+  const [result] = await conn.execute(
+    `UPDATE rooms SET type = COALESCE(?, type), price = COALESCE(?, price), status = COALESCE(?, status), updated_at = ? WHERE id = ?`,
+    [data.type ?? null, data.price ?? null, data.status ?? null, new Date(), id]
+  );
+  if ((result as any).affectedRows === 0) {
+    await conn.end();
+    return null;
+  }
+  const [rows] = await conn.execute('SELECT * FROM rooms WHERE id = ?', [id]);
+  await conn.end();
+  return (rows as any[])[0] || null;
 }
 
 export async function deleteRoom(id: number): Promise<boolean> {
-  const idx = rooms.findIndex(r => r.id === id);
-  if (idx === -1) return false;
-  rooms.splice(idx, 1);
-  return true;
+  const conn = await getDbConnection();
+  const [result] = await conn.execute('DELETE FROM rooms WHERE id = ?', [id]);
+  await conn.end();
+  return (result as any).affectedRows > 0;
 } 
