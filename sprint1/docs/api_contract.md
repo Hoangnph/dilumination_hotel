@@ -87,47 +87,63 @@
 
 ---
 
-## 4. User
-### GET /users
-- Lấy danh sách user
-- Response: `[User]`
-
-### POST /users
-- Tạo user mới
-- Request: `{ name, email, password, role }`
-- Response: `User`
-
-### GET /users/:id
-- Lấy chi tiết user
-- Response: `User`
-
-### PUT /users/:id
-- Cập nhật user
-- Request: `{ name?, email?, password?, role? }`
-- Response: `User`
-
-### DELETE /users/:id
-- Xóa user
-- Response: `{ success: boolean }`
-
----
-
-## 5. Auth
+## 4. User/Auth
 ### POST /auth/register
-- Đăng ký tài khoản
-- Request: `{ name, email, password }`
-- Response: `User`
+- Đăng ký tài khoản (customer)
+- Request:
+```json
+{
+  "name": "Customer Test",
+  "email": "customer_test@dilumination.com",
+  "password": "test123"
+}
+```
+- Response: 201 Created, trả về user vừa tạo
+- Error: 409 nếu email đã tồn tại
 
 ### POST /auth/login
 - Đăng nhập
-- Request: `{ email, password }`
-- Response: `{ token, user }`
+- Request:
+```json
+{
+  "email": "customer_test@dilumination.com",
+  "password": "test123"
+}
+```
+- Response: 200, `{ token, user }`; 401 nếu sai thông tin
 
-### POST /auth/logout
-- Đăng xuất
-- Request: `{}`
-- Response: `{ success: boolean }`
+### POST /auth/verify
+- Xác thực token
+- Request: `{ token }`
+- Response: 200, `{ id, role }`; 401 nếu token không hợp lệ
 
-## 6. Response format
+### GET /users (admin)
+- Lấy danh sách user (chỉ admin)
+- Header: `Authorization: Bearer <token>`
+- Response: 200, array user
+
+### POST /users (admin)
+- Tạo user mới (chỉ admin)
+- Request: `{ name, email, password_hash, role }`
+- Response: 201, user
+
+### PUT /users/:id (admin)
+- Cập nhật user (chỉ admin)
+- Request: partial update
+- Response: 200, user
+
+### DELETE /users/:id (admin)
+- Xóa user (chỉ admin)
+- Response: 204 No Content
+
+### Role & phân quyền
+- `admin`: Toàn quyền quản trị, CRUD user, phân quyền
+- `hotel`: Quản lý khách sạn, phòng, booking liên quan
+- `staff`: Quản lý phòng, housekeeping
+- `customer`: Đặt phòng, quản lý booking cá nhân
+
+---
+
+## 5. Response format
 - Thành công: object hoặc array, status code chuẩn REST
-- Lỗi: `{ "error": "message" }`, status code 400/404/409 tuỳ trường hợp 
+- Lỗi: `{ "error": "message" }`, status code 400/401/403/404/409 tuỳ trường hợp 

@@ -35,21 +35,22 @@
 # Workflow – DIlumination Hotel Microservices
 
 ## 1. Quy trình phát triển
-- Scaffold model, migration SQL, .env cho từng service.
-- Refactor service layer sang thao tác DB thực (mysql2/promise, Sequelize).
-- Viết test CRUD, isolation, double booking, update, delete.
-- Build & test pass 100% với MySQL thật.
+- Thiết kế data model, migration SQL cho từng service (hotel, room, booking, user/auth)
+- Scaffold codebase, chuẩn hóa API contract, phân quyền, role
+- Cấu hình .env, migration DB, seed dữ liệu mẫu
+- Viết test CRUD, isolation, phân quyền, register, login, verify
+- Đảm bảo test isolation: seed/reset DB, reset AUTO_INCREMENT trước mỗi test suite
+- Đảm bảo phân quyền: chỉ admin thao tác user, các role khác giới hạn quyền
+- Review code, merge, test coverage, chuẩn hóa tài liệu @docs
 
-## 2. Migration & cấu hình
-- Đặt .env đúng biến môi trường DB.
-- Chạy migration SQL tạo bảng trước khi test/dev.
+## 2. Quy trình nghiệm thu
+- Chạy migration, seed lại DB trên MySQL thật
+- Chạy toàn bộ test suite (npm test -- --runInBand)
+- Đảm bảo pass 100% booking, hotel, room, user/auth
+- Kiểm tra phân quyền, isolation, CRUD, register, login, verify
+- Cập nhật tài liệu: README, api_contract, data_model, test_plan, báo cáo
 
-## 3. Test & nghiệm thu
-- Chạy npm test cho từng service.
-- Đảm bảo test CRUD, isolation, double booking đều pass.
-- Báo cáo nghiệm thu, cập nhật tài liệu.
-
-## 4. Vận hành & mở rộng
-- Khởi động từng service bằng npm run dev/start.
-- Tích hợp CI/CD, logging, monitoring nếu cần.
-- Mở rộng service room, bổ sung test khi hoàn thiện CRUD DB thực. 
+## 3. CI/CD & vận hành
+- Tích hợp pipeline tự động test/build/deploy
+- Báo cáo coverage, log, monitor, alert
+- Định kỳ cập nhật tài liệu, checklist, báo cáo tiến độ 

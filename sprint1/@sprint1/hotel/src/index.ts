@@ -1,8 +1,9 @@
-import express from 'express';
 import dotenv from 'dotenv';
-import hotelRouter from './routes/hotel';
+import path from 'path';
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
-dotenv.config();
+import express from 'express';
+import hotelRouter from './routes/hotel';
 
 const app = express();
 app.use(express.json());

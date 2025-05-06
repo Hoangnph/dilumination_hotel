@@ -1,5 +1,23 @@
 version: '3.8'
 services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root@123
+      MYSQL_DATABASE: hotel_db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin@123
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   hotel:
     build:
       context: ./hotel
@@ -14,6 +32,9 @@ services:
       - DB_PASSWORD=admin@123
       - REDIS_URL=redis://redis:6379
       - JWT_SECRET=your-secret-key
+    depends_on:
+      db:
+        condition: service_healthy
     command: npm run dev
 
   room:
@@ -30,6 +51,47 @@ services:
       - DB_PASSWORD=admin@123
       - REDIS_URL=redis://redis:6379
       - JWT_SECRET=your-secret-key
+    depends_on:
+      db:
+        condition: service_healthy
+    command: npm run dev
+
+  booking:
+    build:
+      context: ./booking
+    ports:
+      - "3003:3003"
+    environment:
+      - PORT=3003
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_NAME=hotel_db
+      - DB_USER=admin
+      - DB_PASSWORD=admin@123
+      - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=your-secret-key
+    depends_on:
+      db:
+        condition: service_healthy
+    command: npm run dev
+
+  user:
+    build:
+      context: ./user
+    ports:
+      - "3004:3004"
+    environment:
+      - PORT=3004
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_NAME=hotel_db
+      - DB_USER=admin
+      - DB_PASSWORD=admin@123
+      - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=your-secret-key
+    depends_on:
+      db:
+        condition: service_healthy
     command: npm run dev
 
   api-gateway:
@@ -41,7 +103,14 @@ services:
       - PORT=3000
       - HOTEL_SERVICE_URL=http://hotel:3001
       - ROOM_SERVICE_URL=http://room:3002
+      - BOOKING_SERVICE_URL=http://booking:3003
+      - USER_SERVICE_URL=http://user:3004
     depends_on:
       - hotel
       - room
-    command: npm run dev 
+      - booking
+      - user
+    command: npm run dev
+
+volumes:
+  db_data: 

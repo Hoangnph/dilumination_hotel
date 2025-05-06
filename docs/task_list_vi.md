@@ -27,36 +27,52 @@
   - [x] Development guide
   - [x] Testing guide
 
-## Sprint 1: Core Services & Authentication (2 tuần)
+## Sprint 1: Core Services & Authentication ✅ COMPLETED
 
 ### 1. Authentication Service
-- [ ] Viết test cases cho:
-  - User registration
-  - Login/Logout
-  - JWT token management
-  - Role-based access control
-- [ ] Implement Authentication Service
-  - User model và validation
-  - JWT implementation
-  - Password hashing
-  - Session management
-- [ ] API Endpoints:
-  - `/api/auth/register`
-  - `/api/auth/login`
-  - `/api/auth/verify`
-  - `/api/auth/permissions`
+- [x] Viết test cases cho:
+  - [x] User registration
+  - [x] Login/Logout
+  - [x] JWT token management
+  - [x] Role-based access control
+- [x] Implement Authentication Service
+  - [x] User model và validation
+  - [x] JWT implementation
+  - [x] Password hashing
+  - [x] Session management
+- [x] API Endpoints:
+  - [x] `/api/auth/register`
+  - [x] `/api/auth/login`
+  - [x] `/api/auth/verify`
+  - [x] `/api/auth/permissions`
+- [x] Seed user admin, chuẩn hóa quy trình test end-to-end
+- [x] Đảm bảo test pass 100% trên MySQL thật, production-ready
 
-### 2. API Gateway
-- [ ] Viết test cases cho:
-  - Request routing
-  - Rate limiting
-  - Request validation
-  - Error handling
-- [ ] Implement API Gateway
-  - Service discovery
-  - Load balancing
-  - Request/Response transformation
-  - Circuit breaking
+### 2. API Gateway (Core)
+- [x] Viết test cases cho:
+  - [x] Request routing
+  - [x] Rate limiting (cơ bản, sẽ mở rộng ở sprint sau)
+  - [x] Request validation
+  - [x] Error handling
+- [x] Implement API Gateway
+  - [x] Service discovery
+  - [x] Load balancing (cơ bản)
+  - [x] Request/Response transformation
+  - [x] Circuit breaking (sẽ mở rộng ở sprint sau)
+- [x] Đảm bảo test tích hợp end-to-end pass 100%
+- [x] Checklist nghiệm thu, tài liệu hóa, hướng dẫn seed/test
+
+## Checklist nghiệm thu Sprint 1
+- [x] CRUD cho Hotel, Room, Booking, User/Auth
+- [x] Migration SQL, seed/test chuẩn hóa
+- [x] Test coverage ≥ 80%, pass 100% trên MySQL thật
+- [x] Phân quyền, security, performance, concurrency
+- [x] Tài liệu README, test_plan, báo cáo sprint, hướng dẫn CI/CD
+- [x] Đã nghiệm thu production-ready, sẵn sàng cho Sprint 2
+
+## Đề xuất tiếp theo
+- [ ] Chuẩn bị cho các sprint tiếp theo: API Gateway mở rộng, Frontend, PWA, Admin/Customer Portal, monitoring, CI/CD nâng cao
+- [ ] Định kỳ cập nhật tài liệu, checklist, báo cáo tiến độ
 
 ## Sprint 2: Admin Services (2 tuần)
 

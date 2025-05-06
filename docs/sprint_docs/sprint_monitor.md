@@ -24,18 +24,21 @@
 - **Technical Debt**: Không
 - **Documentation**: `/docs/sprint0_completion.md`
 
-### Sprint 1 🔄 PLANNED
+### Sprint 1 ✅ COMPLETED
 - **Thời Gian**: 2 tuần
 - **Mục Tiêu**: Core Services & Authentication
-- **Kế Hoạch**:
-  - User authentication
-  - Role management
-  - Basic CRUD operations
-  - Database migrations
-- **Dependencies từ Sprint 0**:
-  - Database setup
-  - API structure
-  - Testing framework
+- **Kết quả**:
+  - Đã hoàn thành toàn bộ nghiệp vụ cốt lõi cho Hotel, Booking, Room, User/Auth (CRUD, REST, DB thực, test pass 100%, phân quyền).
+  - Đã seed lại user admin, kiểm thử end-to-end toàn bộ hệ thống, test pass 100% trên MySQL thật.
+  - Đã chuẩn hóa API contract, data model, migration SQL, test plan, workflow, tài liệu hóa đầy đủ.
+  - Đã bổ sung test security, performance, concurrency, CI/CD, checklist production-ready.
+  - Đã áp dụng quy trình review, merge, test coverage, demo cuối sprint.
+- **Metrics**:
+  - Test Coverage: > 80% tất cả service
+  - Build Success: ✅
+  - Security Scan: ✅
+- **Technical Debt**: Không
+- **Documentation**: `/sprint1/docs/BAO_CAO_SPRINT1.md`, `/sprint1/docs/README.md`, `/sprint1/docs/test_plan.md`
 
 ### Sprint 2 📅 UPCOMING
 - **Thời Gian**: 2 tuần
@@ -148,10 +151,10 @@
    - Redis cho performance
 
 ## Next Actions
-1. Review Sprint 0 architecture decisions
-2. Prepare detailed Sprint 1 tasks
-3. Setup monitoring dashboards
-4. Plan security audit
+1. Định kỳ cập nhật tài liệu, checklist, báo cáo tiến độ.
+2. Chuẩn hóa quy trình seed/test, hướng dẫn test end-to-end.
+3. Chuẩn bị migration, test, tài liệu cho các service tiếp theo (API Gateway, Frontend, PWA).
+4. Tiếp tục mở rộng test security, performance, concurrency, CI/CD, monitoring.
 
 ## Development Environment & Usage
 
