@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  # API Service
+  api:
+    build: 
+      context: .
+      dockerfile: sprint0/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=mysql://admin:admin@123@db:3306/hotel_db
+      - REDIS_URL=redis://redis:6379
+    volumes:
+      - ./sprint0:/app
+      - /app/node_modules
+    depends_on:
+      - db
+      - redis
+
+  # Database
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: hotel_db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin@123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis Cache
+  redis:
+    image: redis:7.0-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  mysql_data:
+  redis_data: 

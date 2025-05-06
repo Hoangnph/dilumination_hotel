@@ -1,35 +1,31 @@
 # Danh Sách Công Việc - Hệ Thống Quản Lý Khách Sạn (MVP)
 
-## Sprint 0: Thiết Lập Dự Án (2 tuần)
+## Sprint 0 - Project Setup ✅ COMPLETED
+- [x] Development Environment Setup
+  - [x] Docker configuration
+  - [x] Node.js and TypeScript setup
+  - [x] Database setup
+  - [x] Redis setup
+  - [x] Testing framework setup
 
-### 1. Thiết Lập Môi Trường Phát Triển
-- [ ] Cài đặt công cụ phát triển
-  - Node.js, TypeScript
-  - Docker, Docker Compose
-  - IDE và extensions
-  - Git và GitHub
-- [ ] Thiết lập CI/CD pipeline
-  - GitHub Actions workflow
-  - Docker registry
-  - Automated testing
-  - Deployment pipeline
+- [x] Infrastructure Setup
+  - [x] Project structure
+  - [x] Basic API setup
+  - [x] Database connection
+  - [x] Redis connection
+  - [x] Logging system
 
-### 2. Thiết Lập Cơ Sở Hạ Tầng
-- [ ] Cấu hình cơ sở dữ liệu
-  - MySQL master-slave
-  - Redis cache
-  - Database migration tools
-- [ ] Thiết lập monitoring
-  - Prometheus/Grafana
-  - ELK Stack
-  - Sentry
-- [ ] Cấu hình Nginx và SSL
+- [x] Testing Setup
+  - [x] Unit testing framework
+  - [x] Integration testing setup
+  - [x] Test coverage configuration
+  - [x] Test automation
 
-### 3. Thiết Lập Testing Framework
-- [ ] Jest cho unit testing
-- [ ] Supertest cho API testing
-- [ ] Cypress cho E2E testing
-- [ ] Test coverage reporting
+- [x] Documentation
+  - [x] API documentation
+  - [x] Setup guide
+  - [x] Development guide
+  - [x] Testing guide
 
 ## Sprint 1: Core Services & Authentication (2 tuần)
 
